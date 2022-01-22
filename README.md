@@ -13,4 +13,4 @@ More features are propably coming soon :)
 If you want to use this useless page on your website, just download the html file and upload it to your webserver. You can also copy the code.
 
 PS: This is one of my first websites, so please don't expect too much!
-Thanks to [GoldenretriverYT](https://github.com/GoldenretriverYT) fore teching me web development and helping me with that site :)
+Thanks to [GoldenretriverYT](https://github.com/GoldenretriverYT) for teching me web development and helping me with that site :)
