@@ -23,6 +23,7 @@
         
         <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
         <br>
+        <button onclick="audioElement.play();">Replay once</button>
         <h3>Loop <input type="checkbox" id="loopSetting"></h3>
         
 
@@ -35,10 +36,12 @@
     <script>
         /** @type {HTMLInputElement} */
         var audioInput;
-        var audioElement = document.querySelector("#audioElement");
-        var loopSetting = document.querySelector("#loopSetting");
+        var audioElement;
+        var loopSetting;
 
         window.addEventListener("load", () => {
+            audioElement = document.querySelector("#audioElement");
+            loopSetting = document.querySelector("#loopSetting");
             audioInput = document.querySelector("#audioInput");
             audioInput.addEventListener("change", () => {
                 if(audioInput.files.length > 0) {
@@ -55,6 +58,8 @@
                 audioElement.loop = loopSetting.checked;
             })
         });
+
+        console.log(audioElement);
     </script>
 </body>
 </html>
