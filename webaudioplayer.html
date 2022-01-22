@@ -22,6 +22,9 @@
         <input type="file" id="audioInput" name="Audio file" accept="audio/*">
         
         <input type="range" min="0" max="100" value="100" id="volumeSlider">
+        <br>
+        <p>Loop <input type="checkbox" id="loopSetting"></p>
+        
 
         <br>
         
@@ -45,6 +48,10 @@
             setInterval(() => {
                 document.querySelector("#audioElement").volume = document.querySelector("#volumeSlider").value / 100;
             }, 50)
+
+            document.querySelector("#loopSetting").addEventListener("change", () => {
+                document.querySelector("#audioElement").loop = document.querySelector("#loopSetting").checked;
+            })
         });
     </script>
 </body>
