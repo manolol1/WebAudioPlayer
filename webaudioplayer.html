@@ -21,7 +21,7 @@
         <h3 style="margin-bottom: 2px;">Please select an audio file to play it!</h3>
         <input type="file" id="audioInput" name="Audio file" accept="audio/*">
         
-        <input type="range" min="0" max="100" value="100" id="volumeSlider">
+        <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
         <br>
         <h3>Loop <input type="checkbox" id="loopSetting"></h3>
         
@@ -35,22 +35,24 @@
     <script>
         /** @type {HTMLInputElement} */
         var audioInput;
+        var audioElement = document.querySelector("#audioElement");
+        var loopSetting = document.querySelector("#loopSetting");
 
-        window.addEventListener("load", ()=> {
+        window.addEventListener("load", () => {
             audioInput = document.querySelector("#audioInput");
-            audioInput.addEventListener("change", ()=> {
+            audioInput.addEventListener("change", () => {
                 if(audioInput.files.length > 0) {
-                    document.querySelector("#audioElement").src = URL.createObjectURL(audioInput.files[0]);
-                    document.querySelector("#audioElement").play();
+                    audioElement.src = URL.createObjectURL(audioInput.files[0]);
+                    audioElement.play();
                 }
             });
 
             setInterval(() => {
-                document.querySelector("#audioElement").volume = document.querySelector("#volumeSlider").value / 100;
+                audioElement.volume = document.querySelector("#volumeSlider").value / 100;
             }, 50)
 
-            document.querySelector("#loopSetting").addEventListener("change", () => {
-                document.querySelector("#audioElement").loop = document.querySelector("#loopSetting").checked;
+            loopSetting.addEventListener("change", () => {
+                audioElement.loop = loopSetting.checked;
             })
         });
     </script>
