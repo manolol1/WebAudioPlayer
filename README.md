@@ -7,4 +7,4 @@
 
 More features are coming soon :)
 
-[/webaudioplayer.html](open Preview)
+[https://manolol1.github.io/WebAudioPlayer/webaudioplayer.html](open Preview)
