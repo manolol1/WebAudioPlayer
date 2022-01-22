@@ -15,8 +15,34 @@
 </head>
 <body>
     <center>
-        <h1 style="margin-bottom: 5px;">WebAudioPlayer</h1>
+        <h1 style="margin-top: 50px; margin-bottom: 5px;">WebAudioPlayer</h1>
         <h3 style="margin-top: 0px;">A simple HTML audioplayer by Manolol</h3>
+
+        <h3 style="margin-bottom: 2px;">Please select an audio file to play it!</h3>
+        <input type="file" id="audioInput" name="Audio file" accept="audio/*">
+        
+        <input type="range" min="0" max="100" value="100" id="volumeSlider">
+        
+        <audio id="audioElement"></audio>
     </center>
+
+    <script>
+        /** @type {HTMLInputElement} */
+        var audioInput;
+
+        window.addEventListener("load", ()=> {
+            audioInput = document.querySelector("#audioInput");
+            audioInput.addEventListener("change", ()=> {
+                if(audioInput.files.length > 0) {
+                    document.querySelector("#audioElement").src = URL.createObjectURL(audioInput.files[0]);
+                    document.querySelector("#audioElement").play();
+                }
+            });
+
+            setInterval(() => {
+                document.querySelector("#audioElement").volume = document.querySelector("#volumeSlider").value / 100;
+            }, 50)
+        });
+    </script>
 </body>
 </html>
