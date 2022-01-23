@@ -25,7 +25,7 @@
         <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
         <br>
         <br>
-        <button onclick="audioElement.play();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;"">Replay once</button>
+        <button onclick="audioElement.play();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;">Replay once</button>
         <h3>Loop <input type="checkbox" id="loopSetting"></h3>
         
 
@@ -42,9 +42,9 @@
         var loopSetting;
 
         window.addEventListener("load", () => {
-            audioElement = document.querySelector("#audioElement");
-            loopSetting = document.querySelector("#loopSetting");
-            audioInput = document.querySelector("#audioInput");
+            audioElement = document.getElementById("audioElement");
+            loopSetting = document.getElementById("loopSetting");
+            audioInput = document.getElementById("audioInput");
             audioInput.addEventListener("change", () => {
                 if(audioInput.files.length > 0) {
                     audioElement.src = URL.createObjectURL(audioInput.files[0]);
@@ -53,15 +53,13 @@
             });
 
             setInterval(() => {
-                audioElement.volume = document.querySelector("#volumeSlider").value / 100;
+                audioElement.volume = document.getElementById("volumeSlider").value / 100;
             }, 50)
 
             loopSetting.addEventListener("change", () => {
                 audioElement.loop = loopSetting.checked;
             })
         });
-
-        console.log(audioElement);
     </script>
 </body>
 </html>
