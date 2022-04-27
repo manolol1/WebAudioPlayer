@@ -1,65 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebAudioPlayer</title>
-    <style>
-        body{
-            background-color: rgb(51, 51, 51);
-            color: rgb(240, 240, 240);
-            font-family: Arial;
-        }
-    </style>
-</head>
-<body>
-    <center>
-        <h1 style="margin-top: 50px; margin-bottom: 5px;">WebAudioPlayer</h1>
-        <h3 style="margin-top: 0px; margin-bottom: 0px;">A simple open source HTML audioplayer, developed by Manolol</h3>
-        <p style="margin-top: 5px;">(not funny) funfact: Almost every preinstalled audio player has more features than this website. At least, it's in dark mode :D</p>
-
-        <h3 style="margin-bottom: 2px;">Please select an audio file to play it!</h3>
-        <input type="file" id="audioInput" name="Audio file" accept="audio/*">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WebAudioPlayer</title>
         
-        <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
-        <br>
-        <br>
-        <button onclick="audioElement.play();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;">Replay once</button>
-        <h3>Loop <input type="checkbox" id="loopSetting"></h3>
-        
+        <style>
+            body{
+                background-color: rgb(51, 51, 51);
+                color: rgb(240, 240, 240);
+                font-family: Arial;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <header>
+                <h1 style="margin-top: 50px; margin-bottom: 5px;">WebAudioPlayer</h1>
+                <h3 style="margin-top: 0px; margin-bottom: 0px;">A simple open source HTML audioplayer, developed by Manolol</h3>
+            </header>
 
-        <br>
-        
-        <audio id="audioElement"></audio>
-    </center>
-    <a href="https://github.com/manolol1/WebAudioPlayer" target="_blank" style="position: absolute; bottom: 2%; left: calc(50vw - 150px);"><button style="width: 300px; height: 40px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;"> View sourcecode on GitHub</button></a>
+            <main>
+                <h3 style="margin-bottom: 2px;">Please select an audio file to play it!</h3>
+                <input type="file" id="audioInput" name="Audio file" accept="audio/*">
+                
+                <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
+                <br>
+                <br>
+                <button onclick="audioElement.play();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;">Replay once</button>
+                <h3>Loop <input type="checkbox" id="loopSetting"></h3>
+            </main>
 
-    <script>
-        /** @type {HTMLInputElement} */
-        var audioInput;
-        var audioElement;
-        var loopSetting;
+            <audio id="audioElement"></audio>
+        </center>
+        <a href="https://github.com/manolol1/WebAudioPlayer" target="_blank" style="position: absolute; bottom: 2%; left: calc(50vw - 150px);"><button style="width: 300px; height: 40px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;"> View sourcecode on GitHub</button></a>
 
-        window.addEventListener("load", () => {
-            audioElement = document.getElementById("audioElement");
-            loopSetting = document.getElementById("loopSetting");
-            audioInput = document.getElementById("audioInput");
-            audioInput.addEventListener("change", () => {
-                if(audioInput.files.length > 0) {
-                    audioElement.src = URL.createObjectURL(audioInput.files[0]);
-                    audioElement.play();
-                }
+        <script>
+            /** @type {HTMLInputElement} */
+            var audioInput;
+            var audioElement;
+            var loopSetting;
+
+            window.addEventListener("load", () => {
+                audioElement = document.getElementById("audioElement");
+                loopSetting = document.getElementById("loopSetting");
+                audioInput = document.getElementById("audioInput");
+                audioInput.addEventListener("change", () => {
+                    if(audioInput.files.length > 0) {
+                        audioElement.src = URL.createObjectURL(audioInput.files[0]);
+                        audioElement.play();
+                    }
+                });
+
+                setInterval(() => {
+                    audioElement.volume = document.getElementById("volumeSlider").value / 100;
+                }, 50)
+
+                loopSetting.addEventListener("change", () => {
+                    audioElement.loop = loopSetting.checked;
+                })
             });
-
-            setInterval(() => {
-                audioElement.volume = document.getElementById("volumeSlider").value / 100;
-            }, 50)
-
-            loopSetting.addEventListener("change", () => {
-                audioElement.loop = loopSetting.checked;
-            })
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
