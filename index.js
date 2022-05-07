@@ -1,5 +1,5 @@
 // Configuration
-var serverPort = 2225; // If you want, you can change the port for the http server. Default = 2225
+let serverPort = 2225; // If you want, you can change the port for the http server. Default = 2225
 
 console.log("Initialising express webserver...")
 const express = require("express")
