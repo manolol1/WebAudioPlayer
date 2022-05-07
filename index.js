@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
     res.status(200).send(website);
 });
 
-const httpServer = http.createServer(app);
+var httpServer = http.createServer(app);
 httpServer.listen(serverPort, () => console.log("WebAudioPlayer is running on port" + serverPort));
