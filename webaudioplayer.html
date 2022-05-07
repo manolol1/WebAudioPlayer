@@ -28,7 +28,7 @@
                 <input type="range" min="0" max="100" value="100" id="volumeSlider"> <!--You can change the default volume by editing the value attribute in this line-->
                 <br>
                 <br>
-                <button onclick="audioElement.play();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;">Replay once</button>
+                <button onclick="ReplayFile();" style="width: 200px; height: 30px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;">Replay once</button>
                 <h3>Loop <input type="checkbox" id="loopSetting"></h3>
             </main>
 
@@ -37,6 +37,7 @@
         <a href="https://github.com/manolol1/WebAudioPlayer" target="_blank" style="position: absolute; bottom: 2%; left: calc(50vw - 150px);"><button style="width: 300px; height: 40px; color:rgb(240, 240, 240); background-color: rgb(65, 65, 65); border-radius: 30px;"> View sourcecode on GitHub</button></a>
 
         <script>
+            console.log("Hi there! :)")
             /** @type {HTMLInputElement} */
             var audioInput;
             var audioElement;
@@ -61,6 +62,12 @@
                     audioElement.loop = loopSetting.checked;
                 })
             });
+
+            function ReplayFile() {
+                audioElement.pause();
+                audioElement.currentTime = 0;
+                audioElement.play();
+            }
         </script>
     </body>
 </html>
