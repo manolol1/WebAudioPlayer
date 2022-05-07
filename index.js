@@ -10,9 +10,8 @@ const app = express();
 
 app.get("/", (req, res) => {
     const website = fs.readFileSync(__dirname + "/webaudioplayer.html").toString();
-    console.log("Sent index.html to a client");
     res.status(200).send(website);
 });
 
-var httpServer = http.createServer(app);
+const httpServer = http.createServer(app);
 httpServer.listen(serverPort, () => console.log("WebAudioPlayer is running on port" + serverPort));
