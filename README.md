@@ -9,7 +9,7 @@
 
 More features are propably coming soon :)
 
-[open Preview](https://manolol1.github.io/WebAudioPlayer/webaudioplayer.html)
+[open Preview](https://manolol1.github.io/WebAudioPlayer/project/webaudioplayer.html)
 
 ### How to use
 If you want to use this useless page on your website, just download the html file and upload it to your webserver. You can also copy the code.
