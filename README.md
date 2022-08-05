@@ -17,4 +17,4 @@ There is also an express webserver included. If you want to use it, make sure to
 If you want, you can change the server port at the top of index.js (default is 2225). When you're ready, navigate to the location where everything is stored and start the script (node index.js).
 
 PS: This is one of my first websites, so please don't expect too much!
-Thanks to [GoldenretriverYT](https://github.com/GoldenretriverYT) for teaching me web development and helping me with that site :)
+Thanks to [GoldenretriverYT](https://github.com/GoldenretriverYT) for helping me with that site :)
