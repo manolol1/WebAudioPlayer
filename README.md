@@ -5,7 +5,7 @@
  - You can select an audio file and it automatically starts playing
  - You can change the volume
  - You can enable loop
- - Included express.js webserver
+ - Included node.js webserver
 
 More features are propably coming soon :)
 
